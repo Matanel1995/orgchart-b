@@ -13,6 +13,10 @@ OrgChart::~OrgChart(){
 }
 
 OrgChart& OrgChart::add_root(const string & title){
+    //check the title is not empty
+    if(title.empty()){
+        throw std::runtime_error("Cant enter with no name!");
+    }
     if(this->root == nullptr){ // no root before this one so create new one
         Node* newRoot = new Node(title);
         this->root = newRoot;
@@ -25,6 +29,9 @@ OrgChart& OrgChart::add_root(const string & title){
 
 OrgChart& OrgChart::add_sub(const string & father, const string &son){
     // SEARCH FOR THE FATHER NODE
+    if(father.empty() || son.empty()){
+        throw std::runtime_error("Cant enter with no name!");
+    }
     Node* tempFather = searchNode(father);
     if (tempFather != nullptr)
     {
