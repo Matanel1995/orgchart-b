@@ -8,7 +8,4 @@ class Node{
     Node(const string & title){
         this->title = title;
     }
-    ~Node(){
-
-    }
 };

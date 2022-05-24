@@ -8,10 +8,6 @@ OrgChart::OrgChart(){
     this->root = nullptr;
 }
 
-OrgChart::~OrgChart(){
-
-}
-
 OrgChart& OrgChart::add_root(const string & title){
     //check the title is not empty
     if(title.empty()){
@@ -242,4 +238,16 @@ OrgChart::Iterator OrgChart::end()const{
     }
     Iterator temp = Iterator(nullptr,"Null");
     return temp;
+}
+
+OrgChart::~OrgChart(){
+    // vector <Node*> toDelete;
+    // auto it = this->begin_level_order();
+    // toDelete = it.getNodes();
+    // for(unsigned int i=0; i<toDelete.size();i++){
+    //     for(unsigned int j=0; j<toDelete[i]->subNode.size();j++){
+    //         delete toDelete[i]->subNode[j];
+    //     }
+    //     delete toDelete[i];
+    // }
 }

@@ -11,11 +11,15 @@ namespace ariel{
         public:
             Node *root;
             OrgChart();
+            OrgChart(const OrgChart & other);//copy constructor
+            OrgChart(OrgChart && other)noexcept;
             ~OrgChart();
             OrgChart &add_root(const string & title);
             OrgChart &add_sub(const string & father, const string &son);
             Node* searchNode(const string &title)const;
             friend ostream & operator<<(ostream& out, const OrgChart &org);
+            OrgChart &operator=(const OrgChart & other);
+            OrgChart &operator=(OrgChart && other)noexcept;
             // creating sub class for iterator
             class Iterator{
                 private:
